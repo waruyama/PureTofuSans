@@ -1,7 +1,9 @@
 # Pure Tofu Sans
 
 A single-glyph fallback font that maps every Unicode codepoint to the same
-placeholder "tofu" shape (an outlined rectangle with an X across it).
+placeholder "tofu" shape (an outlined rectangle with an X across it). The
+whole font is about 1.2 KB as WOFF2 (3.5 KB as TTF) — small enough to inline
+or ship without thinking about it.
 
 ## Why
 
