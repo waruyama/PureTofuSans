@@ -25,6 +25,26 @@ shapers. A GDEF table classifies `tofu` as a base glyph so codepoints with
 Unicode general category "Mark" don't trigger HarfBuzz's mark-stacking
 fallback.
 
+## Comparison
+
+The same Arabic string (`مُسْتَشْفَيَاتُهُمُ`, a sequence of base letters
+and combining marks) rendered three ways:
+
+**Noto Naskh Arabic** — proper shaping, what a real Arabic font produces:
+
+![Noto Naskh Arabic](img/naskh-arabic.png)
+
+**Pure Tofu Sans** — one tofu per codepoint, no shaping, no mark stacking - very predictable:
+
+![Pure Tofu Sans](img/pure-tofu-sans.png)
+
+**Adobe Notdef (AND-Regular)** — also a tofu font, but without the GDEF
+classification and no-op GSUB/GPOS features. HarfBuzz's Arabic fallback
+shaper kicks in: combining marks get stacked above the base tofus,
+producing a broken two-row layout instead of a clean fallback:
+
+![Adobe Notdef](img/adobe-notdef.png)
+
 ## Usage
 
 Drop the font into your project and reference it as the last fallback in
