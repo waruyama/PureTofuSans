@@ -2,15 +2,15 @@
 
 A single-glyph fallback font that maps every Unicode codepoint to the same
 placeholder "tofu" shape (an outlined rectangle with an X across it). The
-whole font is about 1.2 KB as WOFF2 (3.5 KB as TTF) — small enough to inline
+whole font is about 1.2 KB as WOFF2 (3.5 KB as TTF) - small enough to inline
 or ship without thinking about it.
 
 ## Why
 
 When a browser encounters a codepoint not covered by the page's primary
 webfont, it falls back to system fonts. If no installed font covers the
-codepoint either, HarfBuzz steps in with generic fallback shaping — mark
-stacking, Arabic joining, positioning — which produces inconsistent
+codepoint either, HarfBuzz steps in with generic fallback shaping - mark
+stacking, Arabic joining, positioning - which produces inconsistent
 results across platforms.
 
 Pure Tofu Sans is designed to be installed as the last entry in a CSS
@@ -30,17 +30,17 @@ fallback.
 ## Comparison
 
 The same Arabic string (`مُسْتَشْفَيَاتُهُمُ`, a sequence of base letters
-and combining marks) rendered three ways:
+and combining marks, 19 codepoints) rendered three ways:
 
-**Noto Naskh Arabic** — proper shaping, what a real Arabic font produces:
+**Noto Naskh Arabic** - proper shaping, what a real Arabic font produces:
 
 ![Noto Naskh Arabic](img/naskh-arabic.png)
 
-**Pure Tofu Sans** — one tofu per codepoint, no shaping, no mark stacking - very predictable:
+**Pure Tofu Sans** - one tofu per codepoint, no shaping, no mark stacking - very predictable:
 
 ![Pure Tofu Sans](img/pure-tofu-sans.png)
 
-**Adobe Notdef (AND-Regular)** — also a tofu font, but without the GDEF
+**Adobe Notdef (AND-Regular)** - also a tofu font, but without the GDEF
 classification and no-op GSUB/GPOS features. HarfBuzz's Arabic fallback
 shaper kicks in: combining marks get stacked above the base tofus,
 producing a broken two-row layout instead of a clean fallback:
